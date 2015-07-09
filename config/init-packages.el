@@ -21,4 +21,7 @@
            (package-install package))))
    packages))
 
+(or (file-exists-p package-user-dir)
+    (package-refresh-contents))
+
 (provide 'init-packages)
