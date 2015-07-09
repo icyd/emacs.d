@@ -16,6 +16,6 @@
 (require 'init-flycheck)
 (require 'init-python)
 (require 'init-company)
-(require 'init-keybind)
+(require 'init-interface)
 
 (provide 'init)
