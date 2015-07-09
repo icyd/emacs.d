@@ -1,8 +1,7 @@
-(ensure-package-installed 'color-theme-solarized 'powerline
-                          'fill-column-indicator 'diminish)
+(ensure-package-installed 'color-theme-solarized 'fill-column-indicator
+                          'diminish)
 
 ;; Theme customization
-;;(require 'color-theme-solarized)
 (load-theme 'solarized t)
 (set-frame-parameter nil 'background-mode 'dark)
 (set-terminal-parameter nil 'background-mode 'dark)

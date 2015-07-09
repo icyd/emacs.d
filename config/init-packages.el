@@ -3,6 +3,7 @@
 ;; List of repositories
 (setq package-archives '(
   ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+  ("gnu" . "http://elpa.gnu.org/packages/")
   ;; ("marmalade" . "http://marmalade-repo.org/packages/")
   ("melpa" . "http://melpa.milkbox.net/packages/")
   ("org" . "http://orgmode.org/elpa/")))
@@ -12,15 +13,12 @@
 
 ;; Fetch the list of packages available
 (defun ensure-package-installed (&rest packages)
-  "Assure every package is installed, ask for installation if it’s not.
-Return a list of installed packages or nil for every package not installed."
-  (mapcar
+  "Assure every package is installed, ask for installation if it’s not."
+  (mapc
    (lambda (package)
-     (if (package-installed-p package)
-         package
-       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-           (package-install package)
-         nil)))
+     (unless (package-installed-p package)
+         (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+           (package-install package))))
    packages))
 
 (provide 'init-packages)

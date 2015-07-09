@@ -1,6 +1,7 @@
 ;;Evil-mode
 (ensure-package-installed 'evil 'evil-leader 'evil-tabs 'evil-surround
-                          'evil-nerd-commenter)
+                          'evil-nerd-commenter 'powerline-evil
+                          'ace-jump-mode)
 
 (require 'evil)
 (require 'evil-leader)
@@ -87,7 +88,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     )
 
 ;; Powerline (conflict with evil-tabs, should be put afterwards)
-(require 'powerline)
+(require 'powerline-evil)
 (powerline-evil-vim-color-theme)
 (display-time-mode t)
 
@@ -130,5 +131,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                            (evil-normal-state)))
 (evil-leader/set-key "ct" 'delete-trailing-whitespace)
 
+
+;; Ace jump
+;; (add-to-list 'load-path "~/.emacs.d/ace-jump-mode/")
+(require 'ace-jump-mode)
+(evil-leader/set-key "," 'ace-jump-word-mode)
+(evil-leader/set-key "l" 'ace-jump-line-mode)
+(evil-leader/set-key "a" 'ace-jump-char-mode)
 
 (provide 'init-evil)
