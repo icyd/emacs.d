@@ -1,8 +1,4 @@
 ;;Evil-mode
-(ensure-package-installed 'evil 'evil-leader 'evil-tabs 'evil-surround
-                          'evil-nerd-commenter 'powerline-evil
-                          'ace-jump-mode)
-
 (require 'evil)
 (require 'evil-leader)
 (global-evil-leader-mode)

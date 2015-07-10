@@ -1,5 +1,4 @@
 ;;Org-mode
-(ensure-package-installed 'org)
 (require 'org)
 
 ;; Disable Electric-autopair in org mode

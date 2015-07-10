@@ -1,6 +1,3 @@
-(ensure-package-installed 'color-theme-solarized 'fill-column-indicator
-                          'diminish)
-
 ;; Theme customization
 (load-theme 'solarized t)
 (set-frame-parameter nil 'background-mode 'dark)
