@@ -15,7 +15,10 @@
 (require 'init-flycheck)
 (require 'init-python)
 (require 'init-company)
+(require 'init-helm)
+(require 'init-projectile)
 (require 'init-keybind)
+(require 'init-lambdada)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

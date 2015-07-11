@@ -24,28 +24,37 @@ and create a list ((pack1 . repo) (pack2 . repo))"
        (package-install p))))
 
 (setq package-pinned-packages
-      (filtered-packages "melpa" '(color-theme-solarized
+      (filtered-packages "melpa" '(
+                   color-theme-solarized
 				   evil-tabs
 				   evil-surrond
 				   powerline-evil
 				   dtrt-indent
 				   company-quickhelp
+				   pos-tip
+                   anaconda-mode
 				   company-anaconda
-				   python-mode)))
+				   python-mode
+                   pretty-lambdada
+                   )))
 (setq package-pinned-packages
       (append package-pinned-packages
-	      (filtered-packages "melpa-stable" '(fill-column-indicator
+              (filtered-packages "melpa-stable" '(
+                          fill-column-indicator
 						  diminish
 						  evil
 						  evil-leader
 						  evil-nerd-commenter
 						  ace-jump-mode
 						  company
-						  pos-tip
-						  anaconda-mode
 						  dash
 						  pkg-info
-						  flycheck))))
+                          async
+                          helm
+                          projectile
+                          helm-projectile
+						  flycheck
+                          ))))
 (setq package-pinned-packages
       (append package-pinned-packages
 	      (filtered-packages "org" '(org))))
@@ -58,7 +67,8 @@ and create a list ((pack1 . repo) (pack2 . repo))"
   (package-refresh-contents))
 
 
-(ensure-package-installed '(color-theme-solarized
+(ensure-package-installed '(
+                color-theme-solarized
 			    fill-column-indicator
 			    diminish
 			    evil
@@ -71,9 +81,16 @@ and create a list ((pack1 . repo) (pack2 . repo))"
 			    dtrt-indent
 			    company
 			    company-quickhelp
+			    pos-tip
+                python-mode
 			    anaconda-mode
 			    company-anaconda
+                async
+                helm
+                projectile
+                helm-projectile
 			    flycheck
-			    python-mode))
+                pretty-lambdada
+                ))
 
 (provide 'init-packages)
