@@ -16,9 +16,9 @@
 (require 'init-python)
 (require 'init-company)
 (require 'init-helm)
-(require 'init-projectile)
-(require 'init-keybind)
 (require 'init-lambdada)
+(require 'init-markdown)
+(require 'init-html)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

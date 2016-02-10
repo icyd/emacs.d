@@ -35,7 +35,7 @@
 
 ;; Indent setup
 (setq-default tab-width 4 indent-tabs-mode nil);; Use 4 space indent
-(setq-default c-basic-offset 4 c-default-style "bsd")
+(setq-default c-basic-offset 2 c-default-style "bsd")
 (define-key global-map (kbd "RET") 'newline-and-indent);; Autoindent after Enter
 
 ;; Parents setup
@@ -43,14 +43,15 @@
 (electric-pair-mode +1);;Enable Autoclose parents
 
 ;;Initialize GUI maximazed
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t)
- '(initial-frame-alist (quote ((fullscreen . maximized))))
- )
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(inhibit-startup-screen t)
+;;  '(initial-frame-alist (quote ((fullscreen . maximized))))
+;;  )
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 ;; Custom window splitting (opens previous buffer in split)
 (defun vsplit-last-buffer ()
@@ -65,7 +66,27 @@
   (other-window 1 nil)
   (switch-to-next-buffer)
   )
+;; Key binding for custom splitting
 (global-set-key (kbd "C-x 2") 'vsplit-last-buffer)
 (global-set-key (kbd "C-x 3") 'hsplit-last-buffer)
+(defun paste-from-clipboard ()
+  (interactive)
+  (setq x-select-enable-clipboard t)
+  (yank)
+  (setq x-select-enable-clipboard nil))
+(defun copy-to-clipboard()
+  (interactive)
+  (setq x-select-enable-clipboard t)
+  (kill-ring-save (region-beginning) (region-end))
+  (setq x-select-enable-clipboard nil))
 
+;;Set fill-column
+(setq-default fill-column 80)
+
+;;Set charset
+(prefer-coding-system 'utf-8)
+(setq coding-system-for-read 'utf-8)
+(setq coding-system-for-write 'utf-8)
+(defvar gud-gdb-command-name "arm-none-eabi-gdb")
+(setq gud-gdb-command-name "arm-none-eabi-gdb -i=mi")
 (provide 'init-general)

@@ -4,7 +4,7 @@
 (setq package-archives '(
   ("gnu" . "http://elpa.gnu.org/packages/")
   ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
-  ("melpa" . "http://melpa.milkbox.net/packages/")
+  ;;("melpa" . "http://melpa.milkbox.net/packages/")
   ;;("marmalade" . "http://marmalade-repo.org/packages/")
   ("org" . "http://orgmode.org/elpa/")))
 
@@ -25,18 +25,19 @@ and create a list ((pack1 . repo) (pack2 . repo))"
 
 (setq package-pinned-packages
       (filtered-packages "melpa" '(
-                   color-theme-solarized
+				   color-theme-solarized
 				   evil-tabs
 				   evil-surrond
 				   powerline-evil
 				   dtrt-indent
 				   company-quickhelp
 				   pos-tip
-                   anaconda-mode
+				   anaconda-mode
 				   company-anaconda
 				   python-mode
-                   pretty-lambdada
-                   )))
+				   pretty-lambdada
+				   flycheck-pos-tip
+				   )))
 (setq package-pinned-packages
       (append package-pinned-packages
               (filtered-packages "melpa-stable" '(
@@ -49,12 +50,11 @@ and create a list ((pack1 . repo) (pack2 . repo))"
 						  company
 						  dash
 						  pkg-info
-                          async
-                          helm
-                          projectile
-                          helm-projectile
+						  async
+						  helm
 						  flycheck
-                          ))))
+						  markdown-mode
+						  ))))
 (setq package-pinned-packages
       (append package-pinned-packages
 	      (filtered-packages "org" '(org))))
@@ -66,9 +66,9 @@ and create a list ((pack1 . repo) (pack2 . repo))"
 (when (null package-archive-contents)
   (package-refresh-contents))
 
-
+;; Packages to install
 (ensure-package-installed '(
-                color-theme-solarized
+			    color-theme-solarized
 			    fill-column-indicator
 			    diminish
 			    evil
@@ -81,16 +81,17 @@ and create a list ((pack1 . repo) (pack2 . repo))"
 			    dtrt-indent
 			    company
 			    company-quickhelp
+			    company-c-headers
 			    pos-tip
-                python-mode
+			    python-mode
 			    anaconda-mode
 			    company-anaconda
-                async
-                helm
-                projectile
-                helm-projectile
+			    async
+			    helm
 			    flycheck
-                pretty-lambdada
-                ))
+			    flycheck-pos-tip
+			    pretty-lambdada
+			    markdown-mode
+			    ))
 
 (provide 'init-packages)
